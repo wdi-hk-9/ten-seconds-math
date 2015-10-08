@@ -1,6 +1,7 @@
 $(function(){
   var game = new Game();
+  game.newProblem();
 
-  console.log(game.rand(5,7));
-
+  $('#num1').html(game.problem.num1);
+  $('#num2').html(game.problem.num2);
 });
