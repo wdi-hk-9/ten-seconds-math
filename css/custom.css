@@ -1,6 +1,11 @@
+/*
+ * ColorsPicked with love from:
+ * http://www.colourlovers.com/web/trends/websites/7858/Pandora
+ */
+
 .page-header {
   margin-top: 0px;
-  background-color: rgba(0,60, 95, 1.1);
+  background-color: #091D42;
   padding: 20px;
   color: white;
 }
@@ -14,7 +19,7 @@
   margin-top: 50px;
   padding-top: 80px;
   padding-bottom: 80px;
-  background-color: rgba(0,10, 255,0.4);
+  background-color: #9AB4CB;
 }
 
 #counter {
