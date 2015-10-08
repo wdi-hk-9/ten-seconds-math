@@ -1,11 +1,9 @@
 var Game = function(difficulty, timeLimit) {
   this.secondsLeft = timeLimit;
-  this.timer       = null;
-
-  this.difficulty = difficulty;  // Determines how big numbers are
-  this.problem    = null;        // Current problem to solve
-  this.ADD_POINTS = 5;           // Points when guess is right
-  this.score      = 0;
+  this.difficulty  = difficulty;  // Determines how big numbers are
+  this.problem     = null;        // Current problem to solve
+  this.ADD_POINTS  = 5;           // Points when guess is right
+  this.score       = 0;
 };
 
 // Generate random numbers in an interval
@@ -32,5 +30,8 @@ Game.prototype.checkSolution = function(guess) {
 
 Game.prototype.addPoints = function() {
   this.score += this.ADD_POINTS;
-  console.log(this.score);
+};
+
+Game.prototype.moreSeconds = function() {
+  this.secondsLeft += 10;
 };

@@ -1,6 +1,7 @@
 $(function(){
-  var SECONDS    = 1;
-  var DIFFICULTY = 5;
+  var timer;
+  var SECONDS    = 10;
+  var DIFFICULTY = 10;
 
   var game = new Game(DIFFICULTY, SECONDS);
 
@@ -27,14 +28,16 @@ $(function(){
       game.addPoints();
       restart();
 
-      if (!game.timer) {
-        game.timer = setInterval(countDown, 1000);
+      if (!timer) {
+        timer = setInterval(countDown, 1000);
+      } else {
+        game.moreSeconds();
       }
     }
   }
 
   function gameOver() {
-    clearInterval(game.timer);
+    clearInterval( timer);
     $('#answer-box').fadeOut(800, function(){
       $('#score').html(game.score);
       $('#gameover-box').removeClass('hide').fadeIn(1200);
