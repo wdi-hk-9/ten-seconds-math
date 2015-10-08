@@ -26,3 +26,8 @@ Game.prototype.newProblem = function() {
     solution: num1+num2
   };
 };
+
+// Generate random new problem
+Game.prototype.checkSolution = function(guess) {
+  return guess === this.problem.solution;
+}
