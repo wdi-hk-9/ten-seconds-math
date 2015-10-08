@@ -1,6 +1,6 @@
 $(function(){
   var game = new Game();
-  var score = 0;
+  var score =0;
   // console.log(game.rand(100,0));
   var randNum = parseInt(game.rand(100,0));
   console.log(randNum);
@@ -28,25 +28,21 @@ $(function(){
   };
 // Set Timer End
 
-// Listener to check answer Starts
+//Check answer Starts
   var answerCheck = function () {
     var x = $('#solution-input').val();
       if (x == 12+8) {
-        $('#solution-input').val('');
+        x = ''; //reset input
         addTime();
-        console.log("Yeah");
         var html = ''
         html = "<p id=\"equation\" class=\"text-center\"> 1000+8 </p>";
         $('#equation').replaceWith(html);
-        console.log(html)
         score = score + 5;
       } else if (x !== 12+8) {
         $('#solution-input').css('border-color', 'red');
-        console.log("Wrong");
       };
   }
-// Listener to check answer End
-
+//Check answer End
  $('#solution-input').on('click', startTimer);
  $('#solution-input').keyup(answerCheck);
 });
