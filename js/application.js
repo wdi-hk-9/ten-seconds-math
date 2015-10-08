@@ -1,8 +1,9 @@
 $(function(){
   var game = new Game();
+  var score = 0;
+  console.log(game.rand(100,0));
 
-  console.log(game.rand(5,7));
-
+// Set Timer Starts
   var timer;
   var secondsLeft = 10;
 
@@ -11,7 +12,8 @@ $(function(){
     $('#time-left').html(secondsLeft); // Update time
     if (secondsLeft <= 0) {
       clearInterval(timer);
-      console.log("Time's up!");
+      $('#solution-input').hide();
+      alert("Game Over");
     }
   };
 
@@ -24,5 +26,22 @@ $(function(){
   };
 
   $('#solution-input').on('click', startTimer);
+// Set Timer End
+
+// Listener to check answer Starts
+    var answerCheck = function () {
+    var x = $('#solution-input').val();
+      if (x == 12+8) {
+        $('#solution-input').val('');
+        addTime();
+        console.log("Yeah");
+      } else {
+        $('#solution-input').css('border-color', 'red');
+        console.log("Wrong");
+      };
+  }
+  $('#solution-input').keyup(answerCheck);
+// Listener to check answer End
+  // $('#solution-input').validator();
 
 });
