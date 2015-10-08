@@ -41,14 +41,15 @@ $(function(){
     });
   }
 
+  setEquation();
+
+  checkSolution();
+
   // When timer hits zero
   if (secondsLeft <= 0) {
     $("#solution-input").hide();
     $("#gameover-box").unhide();
   }
 
-  setEquation();
-
-  checkSolution();
 
 });
