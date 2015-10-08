@@ -52,3 +52,7 @@
 #gameover-box > h2 {
   font-size: 30px;
 }
+
+#gameover-box > button {
+  margin-top: 50px;
+}

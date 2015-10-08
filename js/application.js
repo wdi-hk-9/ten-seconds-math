@@ -1,5 +1,8 @@
 $(function(){
-  var game = new Game(10);
+  var SECONDS    = 1;
+  var DIFFICULTY = 5;
+
+  var game = new Game(DIFFICULTY, SECONDS);
 
   function restart() {
     game.newProblem();
@@ -38,6 +41,21 @@ $(function(){
     });
   }
 
+  function resetGame() {
+    game = new Game(DIFFICULTY, SECONDS);
+
+    $('#gameover-box').fadeOut(800, function(){
+      $('#secondsLeft').html(game.secondsLeft);
+      $('#answer-box').removeClass('hide').fadeIn(1200);
+    });
+
+    restart();
+
+  }
+
   $('#solution-input').on('keyup', checkSolution);
+  $('#restart-btn').on('click', resetGame);
+
+  $('#secondsLeft').html(game.secondsLeft);
   restart();
 });

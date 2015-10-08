@@ -1,6 +1,5 @@
-var Game = function(difficulty) {
-  this.TIME_LIMIT  = 1;
-  this.secondsLeft = this.TIME_LIMIT;
+var Game = function(difficulty, timeLimit) {
+  this.secondsLeft = timeLimit;
   this.timer       = null;
 
   this.difficulty = difficulty;  // Determines how big numbers are
