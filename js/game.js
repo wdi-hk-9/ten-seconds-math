@@ -28,3 +28,33 @@ var Game = function() {
 Game.prototype.rand = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+//--------------------------------------------
+// Timer
+//--------------------------------------------
+var timer;
+var secondsLeft = 10;
+
+var everySecond = function(){
+  console.log("Time left: " + secondsLeft--);
+
+  if (secondsLeft <= 0) {
+    clearInterval(timer);
+    console.log("Time's up!");
+  }
+};
+
+var startTimer = function(){
+  timer = setInterval(everySecond, 1000);
+  setInterval(setCountdown, 1000);
+};
+
+var addTime = function() {
+  secondsLeft += 10;
+};
+
+    // Function to update countdown
+  function setCountdown() {
+    $("#counter").html(secondsLeft  + " Seconds Left");
+  }
+

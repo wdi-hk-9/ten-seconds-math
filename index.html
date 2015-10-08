@@ -22,8 +22,12 @@
       <div id="answer-box" class="well col-xs-12 col-sm-8 col-sm-offset-2">
         <p id="counter"  class="text-center">10 Seconds Left</p>
         <p id="equation" class="text-center">12 + 8</p>
-
-        <input type="number" class="center-block" id="solution-input" placeholder="Your answer">
+        <form>
+          <div class="form-group">
+            <label class="sr-only" for="user-input">Your Answer</label>
+            <input class="center-block" type="number" id="solution-input" name="user-input" placeholder="Your answer">
+          </div>
+        </form>
       </div>
 
     </div>
