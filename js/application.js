@@ -3,9 +3,13 @@ $(function(){
 
   var numA;
   var numB;
+  var points = 0;
 
   // Document focus on input box
   $("#solution-input").focus();
+
+  // Hide "Game Over" banner
+  $("#gameover-box").hide();
 
   // Listen for user keydown, which activates timer and starts countdown
   $("#solution-input").one("keydown", console.log("once"));
@@ -28,16 +32,21 @@ $(function(){
          // $("#solution-input").css("border-color", "red");
         }
         else {
-          console.log("correct")
-          /*
           $("form")[0].reset();
           addTime();
           setEquation();
-          */
+          points += 5;
         }
       }
     });
   }
+
+  // When timer hits zero
+  if (secondsLeft <= 0) {
+    $("#solution-input").hide();
+    $("#gameover-box").unhide();
+  }
+
   setEquation();
 
   checkSolution();

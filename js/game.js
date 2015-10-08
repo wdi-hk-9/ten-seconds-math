@@ -53,8 +53,7 @@ var addTime = function() {
   secondsLeft += 10;
 };
 
-    // Function to update countdown
+    /* Function to update countdown ----- should probably go in application.js but how to assign multiple functions to event handler? */
   function setCountdown() {
     $("#counter").html(secondsLeft  + " Seconds Left");
   }
-
