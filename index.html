@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="10 Second Math game">
-    <meta name="author" content="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="10 Second Math game">
+  <meta name="author" content="Fer Martin - f3r.me">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/application.js"></script>
+  <div class="container-fluid">
+    <div class="row">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-  </head>
-  <body>
 
-  </body>
+      <div class="page-header">
+        <h2 class="text-center">10 Seconds Math Game</h2>
+      </div>
+
+      <div id="answer-box" class="well col-xs-12 col-sm-8 col-sm-offset-2">
+        <p id="counter"  class="text-center">10 Seconds Left</p>
+        <p id="equation" class="text-center">12 + 8</p>
+
+        <input type="number" class="center-block" id="solution-input" placeholder="Your answer">
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/application.js"></script>
+</body>
 </html>
