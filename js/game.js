@@ -1,5 +1,5 @@
 var Game = function(difficulty) {
-  this.TIME_LIMIT  = 10;
+  this.TIME_LIMIT  = 1;
   this.secondsLeft = this.TIME_LIMIT;
   this.timer       = null;
 

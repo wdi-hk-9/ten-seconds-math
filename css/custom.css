@@ -38,3 +38,17 @@
   width: 200px;
 }
 
+#gameover-box {
+  margin-top: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: #9AB4CB;
+}
+
+#gameover-box > h1 {
+  font-size: 60px;
+}
+
+#gameover-box > h2 {
+  font-size: 30px;
+}

@@ -10,7 +10,11 @@ $(function(){
   }
 
   function countDown() {
-    $('#secondsLeft').html(game.secondsLeft--);
+    if (game.secondsLeft >= 0) {
+      $('#secondsLeft').html(game.secondsLeft--);
+    } else {
+      gameOver();
+    }
   }
 
   function checkSolution() {
@@ -24,6 +28,14 @@ $(function(){
         game.timer = setInterval(countDown, 1000);
       }
     }
+  }
+
+  function gameOver() {
+    clearInterval(game.timer);
+    $('#answer-box').fadeOut(800, function(){
+      $('#score').html(game.score);
+      $('#gameover-box').removeClass('hide').fadeIn(1200);
+    });
   }
 
   $('#solution-input').on('keyup', checkSolution);
