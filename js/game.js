@@ -1,13 +1,15 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
-var Game = function() {
-  this.TIME_LIMIT = 10;
+var Game = function(difficulty) {
+  this.TIME_LIMIT  = 10;
   this.secondsLeft = this.TIME_LIMIT;
-  this.timer = null;
-  this.difficulty = 50;   // Determines how big numbers are
-  this.problem = null;    // Current problem to solve
-  this.score = 12;
+  this.timer       = null;
+
+  this.difficulty = difficulty;  // Determines how big numbers are
+  this.problem    = null;        // Current problem to solve
+  this.ADD_POINTS = 5;           // Points when guess is right
+  this.score      = 0;
 };
 
 // Generate random numbers in an interval
@@ -30,4 +32,9 @@ Game.prototype.newProblem = function() {
 // Generate random new problem
 Game.prototype.checkSolution = function(guess) {
   return guess === this.problem.solution;
-}
+};
+
+Game.prototype.addPoints = function() {
+  this.score += this.ADD_POINTS;
+  console.log(this.score);
+};
