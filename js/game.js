@@ -1,6 +1,3 @@
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
-'use strict';
-
 var Game = function(difficulty) {
   this.TIME_LIMIT  = 10;
   this.secondsLeft = this.TIME_LIMIT;
