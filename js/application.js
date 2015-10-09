@@ -1,4 +1,5 @@
 $(function(){
+  var timer;
   var game = new Game();
 
   game.genQuestions();
@@ -13,11 +14,12 @@ $(function(){
   var checkResults = function(){
     var answer = parseInt($('#solution-input').val());
     if(game.checkResults(answer)){
-      console.log("Yeah");
-      nextQuestion();
       $('#solution-input').removeClass('solution-error');
+      nextQuestion();
+      if (!timer){
+        timer = setInterval(everySecond, 1000);
+      }
     } else {
-      console.log("Stupid");
       $('#solution-input').addClass('solution-error');
     }
   };
@@ -26,7 +28,7 @@ $(function(){
   $('#solution-input').on('keyup' , checkResults);
 
 // Set Timer Starts
-  var timer;
+
   var secondsLeft = 10;
 
   var everySecond = function(){
@@ -35,7 +37,7 @@ $(function(){
     if (secondsLeft <= 0) {
       clearInterval(timer);
       $('#solution-input').hide();
-      alert("Game Over");
+      alert("Game Score:  " + game.score);
     }
   };
 
@@ -47,7 +49,5 @@ $(function(){
     secondsLeft += 10;
   };
 // Set Timer End
-
-  $('#solution-input').on('click', startTimer);
 
 });

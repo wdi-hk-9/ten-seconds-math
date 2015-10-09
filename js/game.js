@@ -12,6 +12,7 @@ var Game = function() {
   this.problem = null;    // Current problem to solve
   this.score = 0;
   this.POINTS_add =5;
+  this.started =false;
 };
 
 // Function to generate random numbers in an interval
@@ -28,6 +29,7 @@ Game.prototype.genQuestions = function(){
 
 Game.prototype.checkResults = function (answer){
   if (answer== (this.problem.num1 + this.problem.num2)){
+    this.started =true;
     this.score += this.POINTS_add;
     return true;
   } else {
