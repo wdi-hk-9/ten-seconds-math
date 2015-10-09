@@ -1,7 +1,7 @@
 var Game = function() {
   this.TIME_LIMIT = 10;
   this.POINTS_ADD = 5;
-  this.secondsLeft = this.TIME_LIMIT;
+  this.secondsLeft = 0;
   this.difficulty = 5;   // Determines how big numbers are
   this.problem = null;    // Current problem to solve
   this.score = 0;
@@ -28,3 +28,6 @@ Game.prototype.checkSolution = function(guess){
   }
 };
 
+Game.prototype.extraTime = function() {
+  this.secondsLeft += this.TIME_LIMIT;
+};

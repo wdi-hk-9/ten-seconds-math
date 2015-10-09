@@ -2,11 +2,12 @@ $(function(){
   var timer;
   var game = new Game();
 
-  var nextQuestion = function() {
+  var nextQuestion = function(init) {
       game.newProblem();
       $('#num1').html(game.problem.num1);
       $('#num2').html(game.problem.num2);
       $('#solution-input').val('');
+      if (!init) { game.extraTime(); }
   }
 
   var everySecond = function() {
@@ -25,15 +26,13 @@ $(function(){
     if (game.checkSolution(guess)) {
       $('#solution-input').removeClass('solution-error');
       nextQuestion();
-      if (!timer) {
-        timer = setInterval(everySecond, 1000);
-      }
+      if (!timer) {timer = setInterval(everySecond, 1000); }
     } else {
       $('#solution-input').addClass('solution-error');
     }
   };
 
-  nextQuestion();
+  nextQuestion(1);
 
   $('#solution-input').on('keyup', checkSolution);
 
