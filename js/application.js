@@ -1,4 +1,5 @@
 $(function(){
+  var timer;
   var game = new Game();
 
   var nextQuestion = function() {
@@ -8,14 +9,27 @@ $(function(){
       $('#solution-input').val('');
   }
 
+  var everySecond = function() {
+    if (game.secondsLeft > 0) {
+      $('#seconds-left').html( game.secondsLeft-- );
+    } else {
+      $('#seconds-left').html( game.secondsLeft-- );
+      clearInterval(timer);
+      alert('Game over. Score: ' + game.score);
+    }
+  };
+
   var checkSolution = function(){
     var guess = parseInt( $('#solution-input').val() );
 
     if (game.checkSolution(guess)) {
+      $('#solution-input').removeClass('solution-error');
       nextQuestion();
-      console.log("points: " + game.score)
+      if (!timer) {
+        timer = setInterval(everySecond, 1000);
+      }
     } else {
-      console.log('wrong answer');
+      $('#solution-input').addClass('solution-error');
     }
   };
 

@@ -1,11 +1,7 @@
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
-'use strict';
-
 var Game = function() {
   this.TIME_LIMIT = 10;
   this.POINTS_ADD = 5;
   this.secondsLeft = this.TIME_LIMIT;
-  this.timer = null;
   this.difficulty = 5;   // Determines how big numbers are
   this.problem = null;    // Current problem to solve
   this.score = 0;
