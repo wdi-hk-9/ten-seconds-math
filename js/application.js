@@ -1,9 +1,13 @@
 $(function(){
   var game = new Game();
-  var score =0;
-  // console.log(game.rand(100,0));
-  var randNum = parseInt(game.rand(100,0));
-  console.log(randNum);
+
+  var questions = function(a,b){
+    var html = "<p id=\"equation\" class=\"text-center\">" + a + ' + ' + b + "</p>";
+    $('#equation').replaceWith(html);
+};
+
+  game.genQuestions();
+  questions(game.problem1 , game.problem2);
 
 // Set Timer Starts
   var timer;
@@ -30,19 +34,17 @@ $(function(){
 
 //Check answer Starts
   var answerCheck = function () {
-    var x = $('#solution-input').val();
+    var x = $('#solutiosn-input').val();
       if (x == 12+8) {
         x = ''; //reset input
         addTime();
-        var html = ''
-        html = "<p id=\"equation\" class=\"text-center\"> 1000+8 </p>";
-        $('#equation').replaceWith(html);
-        score = score + 5;
       } else if (x !== 12+8) {
         $('#solution-input').css('border-color', 'red');
       };
   }
 //Check answer End
- $('#solution-input').on('click', startTimer);
- $('#solution-input').keyup(answerCheck);
+
+  $('#solution-input').on('click', startTimer);
+  $('#solution-input').keyup(game.checkResults);
+
 });
