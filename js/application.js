@@ -1,21 +1,29 @@
 $(function(){
   var game = new Game();
 
-  var questions = function(a,b){
-    var html = "<p id=\"equation\" class=\"text-center\">" + a + ' + ' + b + "</p>";
-    $('#equation').replaceWith(html);
-};
   game.genQuestions();
-  questions(game.problem.num1 , game.problem.num2);
-  $('#solution-input').on('keyup' , function(){
-    var answer = $('#solution-input').val();
+
+  var nextQuestion = function (){
+    game.genQuestions();
+    var html = "<p id=\"equation\" class=\"text-center\">" + game.problem.num1 + ' + ' + game.problem.num2 + "</p>";
+    $('#equation').replaceWith(html);
+    $('#solution-input').val('');
+  };
+
+  var checkResults = function(){
+    var answer = parseInt($('#solution-input').val());
     if(game.checkResults(answer)){
       console.log("Yeah");
+      nextQuestion();
+      $('#solution-input').removeClass('solution-error');
     } else {
       console.log("Stupid");
+      $('#solution-input').addClass('solution-error');
     }
-  });
+  };
 
+  nextQuestion();
+  $('#solution-input').on('keyup' , checkResults);
 
 // Set Timer Starts
   var timer;
@@ -39,19 +47,6 @@ $(function(){
     secondsLeft += 10;
   };
 // Set Timer End
-
-//Check answer Starts
-  var answerCheck = function () {
-    var x = $('#solutiosn-input').val();
-      if ((game.problem1 + game.problem2) == x) {
-        x = ''; //reset input
-        addTime();
-        console.log("Yeah")
-      } else if (x !== 12+8) {
-        $('#solution-input').css('border-color', 'red');
-      };
-  }
-//Check answer End
 
   $('#solution-input').on('click', startTimer);
 

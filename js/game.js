@@ -11,6 +11,7 @@ var Game = function() {
   this.difficulty = 5;   // Determines how big numbers are
   this.problem = null;    // Current problem to solve
   this.score = 0;
+  this.POINTS_add =5;
 };
 
 // Function to generate random numbers in an interval
@@ -26,9 +27,10 @@ Game.prototype.genQuestions = function(){
 };
 
 Game.prototype.checkResults = function (answer){
-  if (answer== parseInt(this.problem.num1 + this.problem.num2)){
+  if (answer== (this.problem.num1 + this.problem.num2)){
+    this.score += this.POINTS_add;
     return true;
-    // answer = '';
-    this.score = this.score + 5;
+  } else {
+    return false;
   }
 }

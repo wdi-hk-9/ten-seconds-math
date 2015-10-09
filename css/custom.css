@@ -37,3 +37,7 @@
   padding: 10px;
   width: 200px;
 }
+
+.solution-error {
+  border-style: 3px solid red;
+}
