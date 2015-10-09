@@ -6,7 +6,7 @@ var Game = function() {
   // Time
   //------------------------------------------
   this.TIME_LIMIT = 10;
-  this.secondsLeft = this.TIME_LIMIT;
+  this.secondsLeft = 0;
   this.timer = null;
   this.difficulty = 5;   // Determines how big numbers are
   this.problem = null;    // Current problem to solve
@@ -36,3 +36,8 @@ Game.prototype.checkResults = function (answer){
     return false;
   }
 }
+
+Game.prototype.addTime =  function() {
+    this.secondsLeft += this.TIME_LIMIT;
+  };
+

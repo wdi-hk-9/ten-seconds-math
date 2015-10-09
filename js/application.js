@@ -16,15 +16,13 @@ $(function(){
     if(game.checkResults(answer)){
       $('#solution-input').removeClass('solution-error');
       nextQuestion();
-      if (!timer){
-        timer = setInterval(everySecond, 1000);
-      }
+      if (!timer){startTimer()}
     } else {
       $('#solution-input').addClass('solution-error');
     }
   };
 
-  nextQuestion();
+  nextQuestion(1);
   $('#solution-input').on('keyup' , checkResults);
 
 // Set Timer Starts
@@ -43,10 +41,6 @@ $(function(){
 
   var startTimer = function(){
     timer = setInterval(everySecond, 1000);
-  };
-
-  var addTime = function() {
-    secondsLeft += 10;
   };
 // Set Timer End
 
