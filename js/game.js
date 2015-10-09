@@ -3,11 +3,12 @@
 
 var Game = function() {
   this.TIME_LIMIT = 10;
+  this.POINTS_ADD = 5;
   this.secondsLeft = this.TIME_LIMIT;
   this.timer = null;
   this.difficulty = 5;   // Determines how big numbers are
   this.problem = null;    // Current problem to solve
-  this.score = 12;
+  this.score = 0;
 };
 
 // Function to generate random numbers in an interval
@@ -23,6 +24,11 @@ Game.prototype.newProblem = function() {
 };
 
 Game.prototype.checkSolution = function(guess){
-  return (guess === this.problem.num1 + this.problem.num2);
+  if (guess === this.problem.num1 + this.problem.num2) {
+    this.score += this.POINTS_ADD;
+    return true;
+  } else {
+    return false;
+  }
 };
 
