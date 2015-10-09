@@ -5,9 +5,17 @@ $(function(){
     var html = "<p id=\"equation\" class=\"text-center\">" + a + ' + ' + b + "</p>";
     $('#equation').replaceWith(html);
 };
-
   game.genQuestions();
-  questions(game.problem1 , game.problem2);
+  questions(game.problem.num1 , game.problem.num2);
+  $('#solution-input').on('keyup' , function(){
+    var answer = $('#solution-input').val();
+    if(game.checkResults(answer)){
+      console.log("Yeah");
+    } else {
+      console.log("Stupid");
+    }
+  });
+
 
 // Set Timer Starts
   var timer;
@@ -35,9 +43,10 @@ $(function(){
 //Check answer Starts
   var answerCheck = function () {
     var x = $('#solutiosn-input').val();
-      if (x == 12+8) {
+      if ((game.problem1 + game.problem2) == x) {
         x = ''; //reset input
         addTime();
+        console.log("Yeah")
       } else if (x !== 12+8) {
         $('#solution-input').css('border-color', 'red');
       };
@@ -45,6 +54,5 @@ $(function(){
 //Check answer End
 
   $('#solution-input').on('click', startTimer);
-  $('#solution-input').keyup(game.checkResults);
 
 });

@@ -5,22 +5,11 @@ var Game = function() {
   //------------------------------------------
   // Time
   //------------------------------------------
-  // Default value for time
   this.TIME_LIMIT = 10;
-  // Current seconds left
   this.secondsLeft = this.TIME_LIMIT;
-  // Reference to timer Interval
   this.timer = null;
-
-  //------------------------------------------
-  // Problems
-  //------------------------------------------
-  this.difficulty = 50;   // Determines how big numbers are
-  this.problem1 = null;    // Current problem to solve
-  this.problem2 = null;
-  //------------------------------------------
-  // Score
-  //------------------------------------------
+  this.difficulty = 5;   // Determines how big numbers are
+  this.problem = null;    // Current problem to solve
   this.score = 0;
 };
 
@@ -30,14 +19,16 @@ Game.prototype.rand = function(min, max) {
 };
 
 Game.prototype.genQuestions = function(){
-    this.problem1 = this.rand(10,0);
-    this.problem2 = this.rand(10,0);
+  this.problem = {
+    num1: this.rand(1,this.difficulty),
+    num2: this.rand(1,this.difficulty)
+  }
 };
 
-Game.prototype.checkResults = function (){
-  var x = $('#solution-input').val();
-  if ((this.problem1 + this.problem2) == x){
-    x = '';
+Game.prototype.checkResults = function (answer){
+  if (answer== parseInt(this.problem.num1 + this.problem.num2)){
+    return true;
+    // answer = '';
     this.score = this.score + 5;
   }
 }
