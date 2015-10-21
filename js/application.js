@@ -1,6 +1,5 @@
-var game;
 $(function(){
-  game = new Game();
+  var game = new Game();
 
   var numA;
   var numB;
