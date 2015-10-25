@@ -22,8 +22,17 @@
       <div id="answer-box" class="well col-xs-12 col-sm-8 col-sm-offset-2">
         <p id="counter"  class="text-center">10 Seconds Left</p>
         <p id="equation" class="text-center">12 + 8</p>
+        <form>
+          <div class="form-group">
+            <label class="sr-only" for="user-input">Your Answer</label>
+            <input class="center-block" type="number" id="solution-input" name="user-input" placeholder="Your answer">
+          </div>
+        </form>
+      </div>
 
-        <input type="number" class="center-block" id="solution-input" placeholder="Your answer">
+      <div id="gameover-box" class="well col-xs-12 col-sm-8 col-sm-offset-2">
+        <p id="gameover-msg" class="text-center">Game Over!</p>
+        <p id="points-msg" class="text-center">Score: 0 Points</p>
       </div>
 
     </div>
